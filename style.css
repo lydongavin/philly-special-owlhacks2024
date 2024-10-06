@@ -1,0 +1,260 @@
+@import url(https://fonts.googleapis.com/css?family=Amatic+SC:400,700);
+html, body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Syne", sans-serif;
+  height: 1;
+}
+.block{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  font-size: 16px;
+
+}
+
+a {
+    transition-duration: 0.4s;
+}
+
+a:hover {
+    color:#2196F3
+}
+
+.block h2 {
+  position: relative;
+  display: block;
+  text-align: center;
+  margin: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10vw;
+  color: white;
+  font-weight: 400;
+  text-shadow: 1px 1px 2px black;
+}
+.text1 {
+  position: relative;
+  /*display: block;*/
+  font-family: "Syne", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  /*font-size: 5vw;*/
+  font-style:bold;
+  /*text-align: center;*/
+  margin: 0;
+  padding: 0;
+  /*top: 50%;*/
+  /*transform: translateY(-50%);*/
+  color: white;
+  text-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+  letter-spacing: 1px;
+  /*transition: 0.5s;*/
+}
+.text1:hover{
+  text-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+.text1:before,
+.text1:after
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: attr(data-text);
+  transition: 0.5s;
+}
+.text1:hover:before{
+  top: -10px;
+  left: 10px;
+}
+.text1:hover:after{
+  top:-10px;
+  left: 10px;
+}
+
+
+
+.block a {
+    color:#2196F3;
+}
+.img {
+  height: 100vmax; 
+  object-fit: cover;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%,0);
+  pointer-events: none;
+  background-attachment: fixed;
+  
+}
+.events {
+    height: 70vmax;
+}
+.events img {
+    padding: 0;
+    height: 70vmax; 
+}
+
+.section {
+    position: relative;
+    padding: 50px 20px;
+    text-align: center;
+    min-height: 300px; /* Ensure the section has height */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.concert-grid {
+    z-index: 5;
+    color: black;
+    position: relative;  /* Ensure it stays within its container */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+}
+
+.concert {
+    background-color: gray;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.concert:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/*
+FILTER BUTTONS
+https://www.w3schools.com/howto/howto_js_filter_elements.asp
+*/
+.container {
+    overflow: hidden;
+  }
+  
+  .filterDiv {
+    float: left;
+    background-color: #2196F3;
+    color: black;
+    text-align: center;
+    margin: 2px;
+    display: none; /* Hidden by default */
+  }
+  
+  /* The "show" class is added to the filtered elements */
+  .show {
+    display: block;
+  }
+  
+
+  /* Style the buttons */
+  .btn {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #2196F3;
+    color: black;
+    border-radius: 2vmax;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    font-family: "Syne", sans-serif;
+    font-size: 2vh;
+  }
+  
+  /* Add a light grey background on mouse-over */
+  .btn:hover {
+    background-color: #ddd;
+
+}
+  
+  /* Add a dark background to the active button */
+  .btn.active {
+    background-color: blue;
+    color: white;
+  }
+
+  #myBtnContainer {
+    color:white;
+    background-color: white;
+    font-size: 2.5vh;
+    padding-top: 5vmax;
+    padding-bottom: 3vmax;
+    alignment: center;
+    background-image: linear-gradient(green, blue);  
+}
+
+/**/
+  #concerts-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    background-image:linear-gradient(blue, green);
+}
+
+.concert-block {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 300px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.concert-block h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.concert-block p {
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+
+.parallax {
+    /* The image used */
+    background-image: url('https://example.com/your-background-image.jpg'); /* Change to your image URL */
+    
+    /* Parallax scrolling effect */
+    height: 100vh; /* Full height */
+    background-attachment: fixed; /* This property enables the parallax effect */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content {
+    height: 100vh; /* Full height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: white; /* Background color for the content */
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, p {
+    margin: 0;
+    padding: 10px;
+}

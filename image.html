@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Philly Special - Owlhacks 2024</title>
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="block">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/e/e8/2373_-_Philadelphia_-_Wachovia_Center_-_Genesis_-_The_Carpet_Crawlers.JPG"
+      class="img">
+    <h2 class="text1" data-text="Welcome to the Philly music scene!">Welcome to the Philly music scene!</h2>
+  </div>
+  <div class="block">
+    <img src="https://live.staticflickr.com/6154/6198075339_88b9c4b3bf_b.jpg" data-speed="1" class="img">
+    <h2>From clubs to arenas,<br>Philly always shows out</h2>
+  </div>
+  <div class="block events">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/d/d7/The_Decemberists_-_Academy_of_Music%2C_Philadelphia_PA_-_April_2015.jpg"
+      class="img">
+    <h2>Featured Events</h2>
+  </div>
+  <!-- Control buttons -->
+  <div id="myBtnContainer">
+    Sort by genre:
+
+    <button class="btn active" id="default" window.onload="filterSelection('yes')"
+      onclick="filterSelection('yes')">Featured</button>
+    <button class="btn" onclick="filterSelection('Rock')">Rock</button>
+    <button class="btn" onclick="filterSelection('Indie')">Indie</button>
+    <button class="btn" onclick="filterSelection('Pop')">Pop</button>
+    <button class="btn" onclick="filterSelection('Electronic')">Electronic</button>
+    <button class="btn" onclick="filterSelection('HipHop')">Hip Hop</button>
+    <button class="btn" onclick="filterSelection('all')">Show all</button>
+
+
+  </div>
+
+  <!-- The filterable elements. Note that some have multiple class names (this can be used if they belong to multiple categories) -->
+  <div id="concerts-container">
+    <!-- Dynamic concert blocks will be added here -->
+  </div>
+
+  <div class="block">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/3/35/Rapper_DA_CULPRIT_performing_at_Club_Voltage_-_Philadelphia_Pa.jpg"
+      class="img">
+    <a href="calendar.html">
+      <h2>Full Concert Calendar</h2>
+    </a>
+  </div>
+  <div class="block">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Surf_Curse_at_Union_Transfer%2C_November_2022.jpg"
+      class="img">
+    <a href="venues.html">
+      <h2>Explore Venues</h2>
+      <show-hide>
+        <button trigger hidden>show Google Maps</button>
+
+        <div content>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d97860.54436810219!2d-75.24057930001895!3d39.96057753279453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1smusic%20venues%20in%20philadelphia!5e0!3m2!1sen!2sus!4v1728169715524!5m2!1sen!2sus"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </show-hide>
+
+      <script>
+        customElements.define('show-hide', class extends HTMLElement {
+
+          constructor() {
+
+            super();
+
+            this.trigger = this.querySelector('[trigger]');
+            this.content = this.querySelector('[content]');
+            if (!this.trigger || !this.content) return;
+
+            this.trigger.removeAttribute('hidden');
+            this.trigger.setAttribute('aria-expanded', false);
+            this.content.setAttribute('hidden', '');
+
+            this.trigger.addEventListener('click', this);
+          }
+          /**
+                 * Handle click events
+                 * @param  {Event} event The event object
+                 */
+          handleEvent(event) {
+
+            event.preventDefault();
+            // If the content is visible, hide it
+            // Otherwise, show it
+            if (this.trigger.getAttribute('aria-expanded') === 'true') {
+              this.trigger.setAttribute('aria-expanded', false);
+              this.content.setAttribute('hidden', '');
+            } else {
+              this.trigger.setAttribute('aria-expanded', true);
+              this.content.removeAttribute('hidden');
+            }
+          }
+        });
+      </script>
+
+    </a>
+  </div>
+
+  <div class="block">
+    <img src="https://live.staticflickr.com/65535/52657229994_cc88f9470b_b.jpg" class="img">
+    <h2>Don't know what you're looking for?<br><a href="spotify.html">Connect your Spotify account</a> and see your
+      artist matches</h2>
+  </div>
+
+
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
+</body>
